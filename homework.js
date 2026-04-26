@@ -202,8 +202,7 @@ function removeFromCart(carts, cartId) {
  * @returns {Array} - 回傳空陣列
  */
 function clearCart() {
-  carts.length = 0;
-  return carts;
+  return [];
 }
 
 // ========================================
