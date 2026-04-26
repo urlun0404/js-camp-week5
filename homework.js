@@ -266,12 +266,14 @@ function generateOrderReport(orders) {
  * }
  */
 function groupOrdersByPayment(orders) {
-  return {
-    ATM: orders.filter((order) => order.user.payment === "ATM"),
-    "Credit Card": orders.filter(
-      (order) => order.user.payment === "Credit Card"
-    ),
-  };
+  return orders.reduce((acc, order) => {
+    const paymentMethod = order.user.payment;
+    if (!acc[paymentMethod]) {
+      acc[paymentMethod] = [];
+    }
+    acc[paymentMethod].push(order);
+    return acc;
+  }, {});
 }
 
 // ========================================
