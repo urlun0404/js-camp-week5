@@ -168,7 +168,7 @@ function addToCart(carts, product, quantity) {
         : cart
     );
   }
-  return [...carts, { product, quantity }];
+  return [...carts, { id: Date.now(), product, quantity }];
 }
 
 /**
